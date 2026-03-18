@@ -1,0 +1,46 @@
+input[type="email"], input[type="password"], input[type="text"]{
+    background-color: #37373711;
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #37373733;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+input[type="password"] {
+    padding-right: 3rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    background-color: var(--white-colour);
+    height: fit-content;
+    border: solid 2px #37373733;
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form input {
+    width: 100%;
+    margin: 1rem 0;
+    
+}
+
+span.fa-solid.fa-eye {
+    position: absolute;
+    transform: translateY(1.6rem) translateX(-1.75rem);
+    cursor: pointer;
+}
+
+.button {
+    padding: 0.5rem 2rem;
+    background-color: var(--secondary-colour);
+    color: var(--white-colour);
+    border: none;
+    border-radius: 0.25rem;
+}

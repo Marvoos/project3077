@@ -43,6 +43,17 @@ body {
     /*Display everything in a row*/
     display: flex;
     flex-direction: row;
+
+    z-index: 100;
+}
+
+main.content {
+    transform: translateY(12vh);
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .desktop h2 {
