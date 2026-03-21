@@ -22,7 +22,7 @@
                 <h2>SLS</h2>
                 <ul class="page-links">
                     <li id="active-nav"><a href="index.php" class="nav-item">Home</a></li>
-                    <li><a href="browse/browse.html" class="nav-item">Browse</a></li>
+                    <li><a href="browse/browse.php" class="nav-item">Browse</a></li>
                     <li><a href="about/about.html" class="nav-item">About</a></li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@
             </ul>
             <ul class="hidden-nav">  
                 <li><a href="index.php" class="nav-item">Home</a></li>
-                <li><a href="browse/browse.html" class="nav-item">Browse</a></li>
+                <li><a href="browse/browse.php" class="nav-item">Browse</a></li>
                 <li><a href="about/about.html" class="nav-item">About</a></li>
             </ul>
         </div>  
@@ -66,5 +66,6 @@
     </main>
 
     <script src="scripts/navScript.js"></script>
+    <script src="scripts\jumbotron.js"></script>
 </body>
 </html>

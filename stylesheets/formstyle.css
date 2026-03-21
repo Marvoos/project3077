@@ -27,8 +27,7 @@ input[type="password"] {
 
 .form input {
     width: 100%;
-    margin: 1rem 0;
-    
+    margin: 1rem 0;   
 }
 
 span.fa-solid.fa-eye {
@@ -43,4 +42,4 @@ span.fa-solid.fa-eye {
     color: var(--white-colour);
     border: none;
     border-radius: 0.25rem;
-}
+} 
