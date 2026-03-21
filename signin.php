@@ -11,7 +11,7 @@
     <!--The description of the site-->
     <meta name="description" content="A local library service to view and hold books">
     <!--Linking the external stylesheet-->
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/nav.css">
 
     <link rel="stylesheet" href="stylesheets/formstyle.css">
     <script src="https://kit.fontawesome.com/7d8aa418e1.js" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
             <div>
                 <h2>SLS</h2>
                 <ul class="page-links">
-                    <li id="active-nav"><a href="index.html" class="nav-item">Home</a></li>
+                    <li id="active-nav"><a href="index.php" class="nav-item">Home</a></li>
                     <li><a href="browse/browse.html" class="nav-item">Browse</a></li>
                     <li><a href="about/about.html" class="nav-item">About</a></li>
                 </ul>
@@ -37,17 +37,27 @@
             </div>
         </div>
         <div class="mobile">
-            <div class="hamburger">
-                <div id="ham-1"></div>
-                <div id="ham-2"></div>
-                <div id="ham-3"></div>
+            <div>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="close-x hidden">
+                    <div id="line1"></div>
+                    <div id="line2"></div>
+                </div>
+                <h2>SLS</h2>
             </div>
-            <h1>SLS</h1>
-            <ul>  
+            
+            <ul class="account-controls">
+                <li><a href="signin.php" class="account">Sign in</a></li>
+                <li><a href="register.php" class="account-bold">Register</a></li>  
+            </ul>
+            <ul class="hidden-nav">  
                 <li><a href="index.html" class="nav-item">Home</a></li>
-                <li><a href="#" class="nav-item">About</a></li>
-                <li><a href="#" class="nav-item">Sign in</a></li>
-                <li><a href="#" class="nav-item">Register</a></li>
+                <li><a href="browse/browse.html" class="nav-item">Browse</a></li>
+                <li><a href="about/about.html" class="nav-item">About</a></li>
             </ul>
         </div>  
     </nav>
@@ -67,5 +77,6 @@
             </form>
         </div>
     </main>
+    <script src="scripts/navScript.js"></script>
 </body>
 </html>
