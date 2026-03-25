@@ -13,6 +13,7 @@
     <!--Linking the external stylesheet-->
     <link rel="stylesheet" href="../stylesheets/nav.css">
 
+    <link rel="stylesheet" href="../stylesheets/formstyle.css">
     <script src="https://kit.fontawesome.com/7d8aa418e1.js" crossorigin="anonymous"></script>
     
     <title>SLS</title>
@@ -75,8 +76,22 @@
         </ul>
     </div>
 
-    <main class="content">
-
+    <main class="content account-form">
+        <div class="form">
+            <form method="POST">
+                <h2>Register</h2>
+                <input type="text" name="fname" placeholder="First Name" required>
+                <input type="text" name="lname" placeholder="Last Name" required>
+                <input type="email" name="email" autocomplete="email" placeholder="Email Address" required>
+                <div class="pass-div">
+                    <input type="password" name="password" placeholder="Password" required><span id="toggle-pass" class="fa-solid fa-eye"></span>
+                </div>
+                <div>
+                    <input type="submit" class="button">
+                    <p>Already have an account? <a href="signin.php">Sign in</a></p>
+                </div>
+            </form>
+        </div>
     </main>
     <script src="../scripts/navScript.js"></script>
 </body>

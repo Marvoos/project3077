@@ -74,10 +74,13 @@
             <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i>Staff Portal</a></li>
         </ul>
     </div>
-
     <main class="content">
-
+        <div class="jumbo">
+            
+        </div>
     </main>
+
     <script src="../scripts/navScript.js"></script>
+    <script src="../scripts/jumbotron.js"></script>
 </body>
 </html>
