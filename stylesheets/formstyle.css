@@ -37,7 +37,7 @@ input[type="password"] {
     margin: 1rem 0;   
 }
 
-span.fa-solid.fa-eye {
+span.fa-solid.fa-eye, span.fa-solid.fa-eye-slash {
     position: absolute;
     transform: translateY(1.6rem) translateX(-1.75rem);
     cursor: pointer;

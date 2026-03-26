@@ -94,5 +94,6 @@
         </div>
     </main>
     <script src="../scripts/navScript.js"></script>
+    <script src="../scripts/inputScript.js"></script>
 </body>
 </html>
