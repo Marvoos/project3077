@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    $isLoggedIn = isset($_SESSION["user_id"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +29,13 @@
             <h2>SLS</h2>
             <div>
                 <ul class="account-controls">
-                    <li><a href="../forms/signin.php" class="account">Sign in</a></li>
-                    <li><a href="../forms/register.php" class="account-bold">Register</a></li>  
+                    <?php if ($isLoggedIn): ?>
+                        <li><a href="../server/signout.php" class="account-bold">Sign out</a></li>
+                        <li><a href="../user/profile.php"><i class="fa-solid fa-user"></i></a></li>
+                    <?php else: ?>
+                        <li><a href="../forms/signin.php" class="account">Sign in</a></li>
+                        <li><a href="../forms/register.php" class="account-bold">Register</a></li> 
+                    <?php endif; ?> 
                 </ul>
             </div>
         </div>

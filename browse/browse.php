@@ -60,8 +60,8 @@
     </nav>
     <div class="sidebar">
         <ul>
-            <li id="on-page"><a href="../home/index.php"><i class="fa-solid fa-house"></i>Home</a></li>
-            <li><a href="../browse/browse.php"><i class="fa-solid fa-magnifying-glass"></i>Browse</a></li>
+            <li><a href="../home/index.php"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li id="on-page"><a href="../browse/browse.php"><i class="fa-solid fa-magnifying-glass"></i>Browse</a></li>
             <li><a href="#"><i class="fa-solid fa-book"></i>My Books</a></li>
             <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i>History</a></li>
         </ul>

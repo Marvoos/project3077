@@ -17,13 +17,18 @@ input[type="password"] {
     width: 30rem;
     background-color: var(--white-colour);
     height: fit-content;
-    border: solid 2px #37373733;
     padding: 2rem 1rem;
     border-radius: 0.5rem;
     justify-content: center;
     align-items: center;
     box-shadow: 0.25rem 0.25rem 0.4rem #444444;
+    background-color: var(--white-colour);
     
+}
+
+.form-subhead {
+    color: var(black-color);
+    font-size: 0.9rem;
 }
 
 .form > form {
@@ -45,14 +50,14 @@ span.fa-solid.fa-eye, span.fa-solid.fa-eye-slash {
 
 .button {
     padding: 0.5rem 2rem;
-    background-color: var(--secondary-colour);
+    background-color: var(--primary-colour);
     color: var(--white-colour);
     border: none;
     border-radius: 0.25rem;
 } 
 
 .account-form {
-    background: linear-gradient(30deg, var(--secondary-colour), var(--secondary-hover), #01489F);
+    background: linear-gradient(30deg, var(--primary-colour), var(--primary-hover), #01489F);
     backdrop-filter: blur(1rem) contrast(0);
     height: 100vh;
 }

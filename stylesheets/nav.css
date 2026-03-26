@@ -7,11 +7,10 @@
 }
 
 :root {
-    --primary-colour: #A3D0FF;
     --white-colour: #FEFEFE;
     --black-colour: #373737;
-    --secondary-colour: #0059b8;
-    --secondary-hover: #014893;
+    --primary-colour: #0059b8;
+    --primary-hover: #014893;
     --alpha-outline: #37373733;
     --standard-border-size: 2px;
     --nav-height: 5rem;
@@ -102,13 +101,13 @@ main.content {
 }
 
 .account-controls li a.account {
-    outline: solid var(--standard-border-size) var(--secondary-colour);
-    color: var(--secondary-colour);
+    outline: solid var(--standard-border-size) var(--primary-colour);
+    color: var(--primary-colour);
 }
 
 .account-controls li a.account:hover {
     outline: none;
-    background-color: var(--secondary-colour);
+    background-color: var(--primary-colour);
     color: var(--white-colour);
 }   
 
@@ -153,12 +152,12 @@ main.content {
 
 
 .account-controls li a.account-bold {
-    background-color: var(--secondary-colour);
+    background-color: var(--primary-colour);
     color: var(--white-colour); 
 }
 
 .account-controls .account-bold:hover {
-    background-color: var(--secondary-hover);
+    background-color: var(--primary-hover);
 }
 
 
@@ -217,7 +216,7 @@ div.sidebar {
 }
 
 #on-page {
-    background-color: var(--secondary-colour);
+    background-color: var(--primary-colour);
 }
 
 #on-page > a {
@@ -225,7 +224,7 @@ div.sidebar {
 }
 
 #on-page:hover {
-    background-color: var(--secondary-hover);
+    background-color: var(--primary-hover);
 }
 
 @media screen and (max-width: 950px) {
@@ -266,7 +265,7 @@ div.sidebar {
     .hamburger, .close-x {
         width: 3.5rem;
         height: 3rem;
-        border: var(--standard-border-size) solid var(--secondary-colour);
+        border: var(--standard-border-size) solid var(--primary-colour);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -280,7 +279,7 @@ div.sidebar {
         width: 80%;
         height: 0.2rem;
         border-radius: 1rem;
-        background-color: var(--secondary-colour);
+        background-color: var(--primary-colour);
         
     }
 
@@ -316,7 +315,7 @@ div.sidebar {
         margin-top: 5rem;
         height: 100%;
         overflow-y: scroll;
-        background-color: var(--secondary-colour);
+        background-color: var(--primary-colour);
         display: flex;
         flex-direction: column;
         justify-content: start;

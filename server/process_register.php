@@ -40,14 +40,30 @@
             $stmt->bindValue(":password", $hash_to_store);
             $stmt->bindValue(":token", $token);
 
-            $stmt->execute();
+            try {
+                $stmt->execute();
+                $verificationLink = "../server/verify.php?email=$email&token=$token";
+                $subject = "Verify your email!";
+                $message = "Click to verify: $verificationLink";
+                $headers = "From: no-reply@simplelibsystems.com";
 
-            $verificationLink = "http://localhost/myProjects/project3077/server/verify.php?email=$email&token=$token";
-            $subject = "Verify your email!";
-            $message = "Click to verify: $verificationLink";
-            $headers = "From: no-reply@simplelibsystems.com";
+                echo "<!DOCTYPE html> Verification link: <a href=\"$verificationLink\">$verificationLink</a>";
 
-            echo "Verification link: <a href='$verificationLink'>$verificationLink</a>";
+            } catch(PDOException $e) {
+
+                if ($e->errorInfo[1] == 1062) {
+                    // Apply the query string error=email_taken
+                    header("Location: ../forms/register.php?error=email_taken");
+                    // Exit the script immediately
+                    exit();
+                } else {
+                    // If the error doesn't correspond to a duplicate entry error than retrieve the message from the exception
+                    die("Error: " . $e->getMessage());
+                }
+                die("Error Message: " . $e->getMessage());
+            }
+
+            
         }
     }
     

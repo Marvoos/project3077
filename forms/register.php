@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    $isLoggedIn = isset($_SESSION["user_id"]);
+
+    if ($isLoggedIn) {
+        header("Location: ../user/profile.php");
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +92,7 @@
         <div class="form">
             <form method="POST" action="../server/process_register.php">
                 <h2>Register</h2>
+                <p class="form-subhead">Fill out the form below to create an account with us.<p>
                 <input type="text" name="fname" placeholder="First Name" required>
                 <input type="text" name="lname" placeholder="Last Name" required>
                 <input type="email" name="email" autocomplete="email" placeholder="Email Address" required>

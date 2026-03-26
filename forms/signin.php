@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    $isLoggedIn = isset($_SESSION["user_id"]);
+
+    if ($isLoggedIn) {
+        header("Location: ../user/profile.php");
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,8 +89,9 @@
     </div>
     <main class="content account-form">
         <div class="form">
-            <form method="POST">
+            <form method="POST" action="../server/process_login.php">
                 <h2>Sign In</h2>
+                <p class="form-subhead">Sign in using your email and password</p>
                 <input type="email" name="email" autocomplete="email" placeholder="Email Address" required>
                 <div class="pass-div">
                     <input type="password" name="password" placeholder="Password" required><span id="toggle-pass" class="fa-solid fa-eye"></span>
