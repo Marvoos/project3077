@@ -108,6 +108,8 @@ main.content {
 
 .account-controls li a.account:hover {
     outline: none;
+    background-color: var(--secondary-colour);
+    color: var(--white-colour);
 }   
 
 /*

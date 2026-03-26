@@ -78,7 +78,7 @@
 
     <main class="content account-form">
         <div class="form">
-            <form method="POST">
+            <form method="POST" action="../server/process_register.php">
                 <h2>Register</h2>
                 <input type="text" name="fname" placeholder="First Name" required>
                 <input type="text" name="lname" placeholder="Last Name" required>
