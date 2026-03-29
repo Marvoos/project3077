@@ -24,86 +24,142 @@
     <meta name="description" content="A local library service to view and hold books">
     <!--Linking the external stylesheet-->
     <link rel="stylesheet" href="../stylesheets/nav.css">
-
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <link rel="stylesheet" href="../stylesheets/formstyle.css">
+
     <script src="https://kit.fontawesome.com/7d8aa418e1.js" crossorigin="anonymous"></script>
     
     <title>SLS</title>
 </head>
-<body>  
-    <nav class="sls-nav">
-        <div class="desktop">
-            <h2>SLS</h2>
-            <div>
-                <ul class="account-controls">
-                    <li><a href="../forms/signin.php" class="account">Sign in</a></li>
-                    <li><a href="../forms/register.php" class="account-bold">Register</a></li>  
-                </ul>
+<body class="bg-main">  
+    <nav class="nav">
+        <div class="nav-inner flex justify-between items-center p-lg">
+            <h2 class="nav-title">SLS</h2>
+            
+            <div class="flex items-center">
+                <?php if ($isLoggedIn): ?>
+                    <a href="../server/signout.php" class="btn btn-primary m-md">Sign out</a>
+                    <a href="../user/profile.php" class="nav-link">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                <?php else: ?>
+                    <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
+                    <a href="../forms/register.php" class="btn btn-primary">Register</a> 
+                <?php endif; ?> 
             </div>
         </div>
-        <div class="mobile">
-            <div>
-                <div class="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="close-x hidden">
-                    <div id="line1"></div>
-                    <div id="line2"></div>
-                </div>
-                <h2>SLS</h2>
-            </div>
-            
-            <ul class="account-controls">
-                <li><a href="../forms/signin.php" class="account">Sign in</a></li>
-                <li><a href="../forms/register.php" class="account-bold">Register</a></li>  
-            </ul>
-            <ul class="hidden-nav">  
-                <li><a href="../home/index.php" class="nav-item"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li><a href="../browse/browse.php" class="nav-item"><i class="fa-solid fa-magnifying-glass"></i>Browse</a></li>
-                <li><a href="#"><i class="fa-solid fa-book"></i>My Books</a></li>
-                <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i>History</a></li>
-                <li><a href="../about/about.html" class="nav-item"><i class="fa-solid fa-circle-info"></i>About</a></li>
-                <li><a href="#"><i class="fa-solid fa-clipboard-question"></i>FAQ</a></li>
-                <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact Us</a></li>
-                <li><a href="#">Staff Portal</a></li>
-            </ul>   
-        </div>  
+        <div class="nav-mobile flex justify-between items-center p-md">
+            <h2 class="nav-title">SLS</h2>
+
+            <button class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
     </nav>
-    <div class="sidebar">
-        <ul>
-            <li id="on-page"><a href="../home/index.php"><i class="fa-solid fa-house"></i>Home</a></li>
-            <li><a href="../browse/browse.php"><i class="fa-solid fa-magnifying-glass"></i>Browse</a></li>
-            <li><a href="#"><i class="fa-solid fa-book"></i>My Books</a></li>
-            <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i>History</a></li>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+
+        <ul class="mobile-list">
+            <li><a href="../home/index.php">Home</a></li>
+            <li><a href="../browse/browse.php">Browse</a></li>
+            <li><a href="#">My Books</a></li>
+            <li><a href="#">History</a></li>
         </ul>
-        <ul>
-            <li><a href="#"><i class="fa-solid fa-circle-info"></i>About</a></li>
-            <li><a href="#"><i class="fa-solid fa-clipboard-question"></i>FAQ</a></li>
-            <li><a href="#"><i class="fa-solid fa-envelope"></i>Contact Us</a></li>
+
+        <ul class="mobile-list">
+            <li><a href="../about/about.html">About</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
-        <ul>
-            <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i>Staff Portal</a></li>
-        </ul>
+
+        <div class="mobile-auth">
+            <?php if ($isLoggedIn): ?>
+                <a href="../server/signout.php" class="btn btn-primary">Sign out</a>
+            <?php else: ?>
+                <a href="../forms/signin.php" class="btn btn-outline">Sign in</a>
+                <a href="../forms/register.php" class="btn btn-primary">Register</a>
+            <?php endif; ?>
+        </div>
+
     </div>
-    <main class="content account-form">
-        <div class="form">
-            <form method="POST" action="../server/process_login.php">
+    <aside class="sidebar">
+        <ul class="sidebar-list">
+            <li class="sidebar-item active">
+                <a href="../home/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../browse/browse.php" class="sidebar-link">
+                    <i class="fa-solid fa-magnifying-glass"></i> Browse
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fa-solid fa-book"></i> My Books
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i> History
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="../about/about.html" class="sidebar-link">
+                    <i class="fa-solid fa-circle-info"></i> About
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fa-solid fa-clipboard-question"></i> FAQ
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fa-solid fa-envelope"></i> Contact
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main forms">
+        <div class="flex flex-col items-center justify-center">
+            <form class="form" method="POST" action="../server/process_login.php">
                 <h2>Sign In</h2>
-                <p class="form-subhead">Sign in using your email and password</p>
-                <input type="email" name="email" autocomplete="email" placeholder="Email Address" required>
-                <div class="pass-div">
-                    <input type="password" name="password" placeholder="Password" required><span id="toggle-pass" class="fa-solid fa-eye"></span>
+                <p>Sign in using your email and password</p>
+
+                <div class="form-fields flex flex-col items-center justify-center">
+                    <input class="text-input" type="email" name="email" autocomplete="email" placeholder="Email Address" required>
+                    <div class="pass-div flex justify-center items-center">
+                        <input class="text-input" type="password" name="password" placeholder="Password" required><span id="toggle-pass" class="fa-solid fa-eye"></span>
+                    </div>
+                    <a class="link" href="../forms/forgotpass.php">Forgot your password?</a>
                 </div>
                 <div>
-                    <input type="submit" class="button">
-                    <p>Don't have an account? <a href="register.php">Register</a></p>
+                    <input class="btn btn-primary w-full" type="submit" class="button">
+                    <p>Don't have an account? <a class="link" href="register.php">Register</a></p>
                 </div>
+                
             </form>
         </div>
     </main>
+
     <script src="../scripts/navScript.js"></script>
+    <script src="../scripts/jumbotron.js"></script>
     <script src="../scripts/inputScript.js"></script>
 </body>
 </html>

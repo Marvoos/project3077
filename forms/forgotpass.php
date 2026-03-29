@@ -37,15 +37,8 @@
             <h2 class="nav-title">SLS</h2>
             
             <div class="flex items-center">
-                <?php if ($isLoggedIn): ?>
-                    <a href="../server/signout.php" class="btn btn-primary m-md">Sign out</a>
-                    <a href="../user/profile.php" class="nav-link">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                <?php else: ?>
-                    <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
-                    <a href="../forms/register.php" class="btn btn-primary">Register</a> 
-                <?php endif; ?> 
+                <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
+                <a href="../forms/register.php" class="btn btn-primary">Register</a>  
             </div>
         </div>
         <div class="nav-mobile flex justify-between items-center p-md">
@@ -138,21 +131,18 @@
     <!-- MAIN CONTENT -->
     <main class="main forms">
         <div class="flex flex-col items-center justify-center">
-            <form class="form" method="POST" action="../server/process_register.php">
-                <h2>Register</h2>
-                <p>Fill out the form below to create an account with us.<p>
-                <div class="form-fields flex flex-col justify-center items-center">
-                    <input class="text-input" type="text" name="fname" placeholder="First Name" required>
-                    <input class="text-input" type="text" name="lname" placeholder="Last Name" required>
+            <form class="form" method="POST" action="../server/process_reset_link.php">
+                <h2>Forgot your password?</h2>
+                <p>Please enter the email address you'd like your password reset information sent to.</p>
+
+                <div class="form-fields flex flex-col items-center justify-center">
                     <input class="text-input" type="email" name="email" autocomplete="email" placeholder="Email Address" required>
-                    <div class="pass-div flex justify-center items-center">
-                        <input class="text-input pass" type="password" name="password" placeholder="Password" required><span id="toggle-pass" class="fa-solid fa-eye"></span>
-                    </div>
                 </div>
-                <div>
-                    <input class="btn btn-primary w-full" type="submit" class="button">
-                    <p class="m-md">Already have an account? <a class="link" href="signin.php">Sign in</a></p>
+                <div class="flex flex-col items-center justify-center">
+                    <input class="btn btn-primary w-full" type="submit" class="button" value="Request Reset">
+                    <a class="link m-md" href="../forms/signin.php">Back to Login</a>
                 </div>
+                
             </form>
         </div>
     </main>

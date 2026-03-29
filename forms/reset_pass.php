@@ -8,8 +8,38 @@
         exit();
     }
 
-?>
+    $host = "localhost";
+    $dbName = "sls_data";
+    $dbUser = "root";
+    $dbPass = "";
 
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die("Error message: " . $e->getMessage());
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        if (isset($_GET["token"])) {
+            $token = $_GET["token"];
+
+            $stmt = $pdo->prepare("SELECT * FROM passwordresets WHERE token = :token");
+            $stmt->bindValue(":token", $token);
+            $stmt->execute();
+            $reset = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$reset || strtotime($reset['expires_at']) < time()) {
+                die("Invalid or expired token.");
+            }
+            
+            
+        }
+    }
+    
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,17 +65,10 @@
     <nav class="nav">
         <div class="nav-inner flex justify-between items-center p-lg">
             <h2 class="nav-title">SLS</h2>
-            
+            <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
             <div class="flex items-center">
-                <?php if ($isLoggedIn): ?>
-                    <a href="../server/signout.php" class="btn btn-primary m-md">Sign out</a>
-                    <a href="../user/profile.php" class="nav-link">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                <?php else: ?>
-                    <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
-                    <a href="../forms/register.php" class="btn btn-primary">Register</a> 
-                <?php endif; ?> 
+                <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
+                <a href="../forms/register.php" class="btn btn-primary">Register</a>  
             </div>
         </div>
         <div class="nav-mobile flex justify-between items-center p-md">
@@ -138,21 +161,18 @@
     <!-- MAIN CONTENT -->
     <main class="main forms">
         <div class="flex flex-col items-center justify-center">
-            <form class="form" method="POST" action="../server/process_register.php">
-                <h2>Register</h2>
-                <p>Fill out the form below to create an account with us.<p>
-                <div class="form-fields flex flex-col justify-center items-center">
-                    <input class="text-input" type="text" name="fname" placeholder="First Name" required>
-                    <input class="text-input" type="text" name="lname" placeholder="Last Name" required>
-                    <input class="text-input" type="email" name="email" autocomplete="email" placeholder="Email Address" required>
+            <form class="form" method="POST" action="../server/change_pass.php">
+                <h2>Reset Password</h2>
+                <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
+                <div class="form-fields">
                     <div class="pass-div flex justify-center items-center">
-                        <input class="text-input pass" type="password" name="password" placeholder="Password" required><span id="toggle-pass" class="fa-solid fa-eye"></span>
+                        <input class="text-input" type="password" name="password" placeholder="Password" required><span id="toggle-pass" class="fa-solid fa-eye"></span>
                     </div>
                 </div>
-                <div>
-                    <input class="btn btn-primary w-full" type="submit" class="button">
-                    <p class="m-md">Already have an account? <a class="link" href="signin.php">Sign in</a></p>
+                <div class="flex flex-col items-center justify-center">
+                    <input class="btn btn-primary w-full" type="submit" class="button" value="Reset Password">
                 </div>
+                
             </form>
         </div>
     </main>

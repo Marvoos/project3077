@@ -7,4 +7,11 @@ CREATE TABLE userdata  (
   token VARCHAR(64),
   PRIMARY KEY (id),
   UNIQUE(email)
-)
+);
+
+CREATE TABLE passwordresets(
+  id int AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL,
+  token VARCHAR(255) NOT NULL,
+  expires_at DATETIME NOT NULL
+);

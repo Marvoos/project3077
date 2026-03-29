@@ -1,76 +1,66 @@
-input[type="email"], input[type="password"], input[type="text"]{
-    background-color: #37373711;
-    border: none;
-    outline: none;
-    border-bottom: solid 2px #37373733;
-    padding: 0.5rem;
-    font-size: 1rem;
-}
-
-input[type="password"] {
-    padding-right: 3rem;
+main.forms {
+    background: linear-gradient(160deg, var(--primary-colour) 70%, var(--accent-colour) 70.01%);
+    background-attachment: fixed;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    width: 30rem;
-    background-color: var(--white-colour);
-    height: fit-content;
-    padding: 2rem 1rem;
-    border-radius: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0.25rem 0.25rem 0.4rem #444444;
-    background-color: var(--white-colour);
-    
+    background-color: var(--bg-card);
+    padding: var(--spacing-lg);
+    border: solid var(--standard-border-size) var(--border-colour);
+    box-shadow: var(--shadow-md);
+    width: 50%;
 }
 
-.form-subhead {
-    color: var(black-color);
-    font-size: 0.9rem;
+.form-fields {
+    border-top: solid var(--standard-border-size) var(--border-colour);
+    border-bottom: solid var(--standard-border-size) var(--border-colour);
+    padding: var(--spacing-lg) 0;
+    margin: var(--spacing-md) 0;
 }
 
-.form > form {
-    width: 100%;
-    height: 100%;
-    
-}
-
-.form input {
-    width: 100%;
-    margin: 1rem 0;   
-}
-
-span.fa-solid.fa-eye, span.fa-solid.fa-eye-slash {
-    position: absolute;
-    transform: translateY(1.6rem) translateX(-1.75rem);
-    cursor: pointer;
-}
-
-.button {
-    padding: 0.5rem 2rem;
-    background-color: var(--primary-colour);
-    color: var(--white-colour);
+.text-input {
+    background-color: var(--border-colour);
     border: none;
-    border-radius: 0.25rem;
+    border-bottom: solid var(--standard-border-size) var(--black-colour);
+    padding: var(--spacing-md) var(--spacing-lg);
+    outline: none;
+    transition: border-color 0.4s ease;
+    width: 90%;
+    margin: var(--spacing-md);
+}
+
+.pass-div {
+    position: relative;
+    width: 100%;
 } 
 
-.account-form {
-    background: linear-gradient(30deg, var(--primary-colour), var(--primary-hover), #01489F);
-    backdrop-filter: blur(1rem) contrast(0);
-    height: 100vh;
+.fa-eye, .fa-eye-slash {
+    display: inline-block;
+    position: absolute;
+    bottom: 2.15rem;
+    right: 2.2rem;
 }
 
+.text-input:focus {
+    border-bottom: solid var(--standard-border-size) var(--primary-colour);
+}
 
-@media screen and (max-width: 400px) {
-    main.content {
-        justify-content: start;
-        
+@media screen and (max-width: 1000px) {
+    .form {
+        width: 70%;
     }
+}
 
+@media screen and (max-width: 768px) {
+    .fa-eye, .fa-eye-slash {
+        bottom: 2.2rem;
+        right: 3rem;
+    }
+}
+
+@media screen and (max-width: 468px) {
     .form {
         width: 95%;
     }
-
 }
+
