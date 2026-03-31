@@ -1,8 +1,8 @@
 <?php
     $host = "localhost";
-    $dbName = "sls_data";
-    $dbUser = "root";
-    $dbPass = "";
+    $dbName = "ions_sls_data";
+    $dbUser = "ions_sls_data";
+    $dbPass = "n47gU2JJJH7ScJtVQzzx";
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
@@ -42,12 +42,19 @@
 
             try {
                 $stmt->execute();
-                $verificationLink = "../server/verify.php?email=$email&token=$token";
+                $verificationLink = "https://ions.myweb.cs.uwindsor.ca/COMP3077/sls/server/verify.php?email=$email&token=$token";
                 $subject = "Verify your email!";
                 $message = "Click to verify: $verificationLink";
-                $headers = "From: no-reply@simplelibsystems.com";
+                $headers = "From: no-reply@simplelibsystems.com\r\n";
+                $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-                echo "<!DOCTYPE html> Verification link: <a href=\"$verificationLink\">$verificationLink</a>";
+                if (mail($email, $subject, $message, $headers)) {
+                    header("Location: ../forms/signin.php?register=verify");
+                } else {
+                    echo "Verification link: <a href='$verificationLink'>$verificationLink</a>";
+                    exit();
+                }
+
 
             } catch(PDOException $e) {
 

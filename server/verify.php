@@ -1,43 +1,42 @@
 <?php
-    $host = "localhost";
-    $dbName = "sls_data";
-    $dbUser = "root";
-    $dbPass = "";
+$host = "localhost";
+$dbName = "ions_sls_data";
+$dbUser = "ions_sls_data";
+$dbPass = "n47gU2JJJH7ScJtVQzzx";
 
-    try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Error message: " . $e->getMessage());
-    }
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error message: " . $e->getMessage());
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        if (isset($_GET["email"]) && isset($_GET["token"])) {
-            $email = $_GET["email"];
-            $token = $_GET["token"];
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET["email"]) && isset($_GET["token"])) {
+        $email = $_GET["email"];
+        $token = $_GET["token"];
 
-            $stmt = $pdo->prepare("SELECT * FROM userdata WHERE email = :email AND token = :token");
-            $stmt->bindValue(":email", $email);
-            $stmt->bindValue(":token", $token);
+        $updateToken = $pdo->prepare("
+            UPDATE userdata 
+            SET verified = 1, token = NULL 
+            WHERE email = :email AND token = :token
+        ");
+        $updateToken->bindValue(":email", $email);
+        $updateToken->bindValue(":token", $token);
+        $updateToken->execute();
 
-            $stmt->execute();
-
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($user) {
-                $updateToken = $pdo->prepare("UPDATE userdata SET verified = 1, token = NULL WHERE email = :email");
-                $updateToken->bindValue(":email", $email);
-                $updateToken->execute();
-                header("Location: ../forms/signin.php?validation=success");
-                exit();
-            } else {
-                header("Location: ../forms/register.php?validation=failure");
-                exit();
-            }
-            
+        if ($updateToken->rowCount() > 0) {
+            // Token matched and user is now verified
+            header("Location: ../forms/signin.php?validation=success");
+        } else {
+            // Token didn't match, could be already verified or invalid link
+            header("Location: ../forms/signin.php?validation=already_verified");
         }
-        else {
-            header("Location: ../forms/register.php?validation=nodata");
-            exit();
-        }
+        exit();
+        
+    } else {
+        header("Location: ../forms/register.php?validation=nodata");
+        exit();
     }
+}
 ?>

@@ -9,9 +9,9 @@
     }
 
     $host = "localhost";
-    $dbName = "sls_data";
-    $dbUser = "root";
-    $dbPass = "";
+    $dbName = "ions_sls_data";
+    $dbUser = "ions_sls_data";
+    $dbPass = "n47gU2JJJH7ScJtVQzzx";
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
