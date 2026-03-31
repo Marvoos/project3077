@@ -71,9 +71,9 @@
         </ul>
 
         <ul class="mobile-list">
-            <li><a href="../about/about.html">About</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="../info/about.html">About</a></li>
+            <li><a href="../info/faq.html">FAQ</a></li>
+            <li><a href="../info/contact.php">Contact</a></li>
         </ul>
 
         <div class="mobile-auth">
@@ -111,17 +111,17 @@
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-item">
-                <a href="../about/about.html" class="sidebar-link">
+                <a href="../info/about.html" class="sidebar-link">
                     <i class="fa-solid fa-circle-info"></i> About
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../info/faq.html" class="sidebar-link">
                     <i class="fa-solid fa-clipboard-question"></i> FAQ
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../info/contact.php" class="sidebar-link">
                     <i class="fa-solid fa-envelope"></i> Contact
                 </a>
             </li>
@@ -158,7 +158,6 @@
     </main>
 
     <script src="../scripts/navScript.js"></script>
-    <script src="../scripts/jumbotron.js"></script>
     <script src="../scripts/inputScript.js"></script>
 </body>
 </html>

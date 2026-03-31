@@ -143,6 +143,51 @@ a {
     background: var(--bg-hover); 
 }
 
+.jumbo {
+    height: 35rem;
+    width: 100%;
+}
+
+.jumbo {
+    transition: all 0.2s ease;
+}
+
+.jumbo .card-img {
+    width: 100%;
+    object-fit: cover;
+    height: 15rem;
+    overflow: hidden;
+    border-radius: var(--standard-border-radius) var(--standard-border-radius) 0 0;
+    position: relative;
+}
+
+.jumbo .img-credit-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--border-colour);
+}
+
+.round-jumbo-btn {
+    background-color: var(--text-primary);
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: solid var(--standard-border-size) var(--text-secondary);
+    opacity: 75%;
+    transition: all 0.2s ease;
+}
+
+.round-jumbo-btn.active {
+    opacity: 100%;
+}
+
+.round-jumbo-btn:hover {
+    cursor: pointer;
+    transform: translateY(-0.25rem);
+    outline: solid var(--black-colour);
+}
+
 /* Borders */
 .border { 
     border: var(--standard-border-size) solid var(--border-colour); 
@@ -190,7 +235,7 @@ a {
 }
 
 .link {
-    color: var(--black-colour);
+    color: var(--accent-colour);
 }
 
 .link:hover {

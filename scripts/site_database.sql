@@ -15,3 +15,27 @@ CREATE TABLE passwordresets(
   token VARCHAR(255) NOT NULL,
   expires_at DATETIME NOT NULL
 );
+
+CREATE TABLE books(
+  id INT AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  author VARCHAR(255),
+  description text,
+  image VARCHAR(255),
+  copies_available INT DEFAULT 1;
+  created_at TIMESTAMP CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE borrowedbooks(
+  id INT AUTO_INCREMENT,
+  user_id INT,
+  book_id INT,
+  borrowed_at DATETIME CURRENT_TIMESTAMP,
+  due_date DATETIME,
+  returned_at DATETIME NULL,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES userdata(id) ON DELETE CASCADE,
+  FOREIGN KEY (boook_id) REFERENCES books(id) ON DELETE CASCADE
+);

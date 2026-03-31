@@ -64,9 +64,9 @@
         </ul>
 
         <ul class="mobile-list">
-            <li><a href="../about/about.html">About</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="../info/about.html">About</a></li>
+            <li><a href="../info/faq.html">FAQ</a></li>
+            <li><a href="../info/contact.php">Contact</a></li>
         </ul>
 
         <div class="mobile-auth">
@@ -104,17 +104,17 @@
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-item">
-                <a href="../about/about.html" class="sidebar-link">
+                <a href="../info/about.html" class="sidebar-link">
                     <i class="fa-solid fa-circle-info"></i> About
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../info/faq.html" class="sidebar-link">
                     <i class="fa-solid fa-clipboard-question"></i> FAQ
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../info/contact.php" class="sidebar-link">
                     <i class="fa-solid fa-envelope"></i> Contact
                 </a>
             </li>
@@ -130,12 +130,32 @@
 
     <!-- MAIN CONTENT -->
     <main class="main">
-        <div class="card p-lg shadow-md rounded">
-            <h1 class="text-primary">Welcome to SLS</h1>
-            <p class="text-secondary">
-                Browse and manage your books with ease.
-            </p>
+        <div class="card bg-card shadow-md rounded jumbo border">
+            <div class="card-img">
+
+            </div>
+            <div class="card-body p-lg">
+                
+            </div>
         </div>
+        <?php if ($isLoggedIn): ?>
+            <div>
+                <div>
+                    <h2 class="text-primary">Borrowing</h2>
+                </div>
+                <div>
+                    <h2 class="text-primary">Previously Borrowed</h2>
+                </div>
+                <div>
+                    <h2 class="text-primary">For You</h2>
+                </div>
+                <div>
+                    <h2 class="text-primary">Recent Additions</h2>
+                </div>
+            </div>
+        <?php else: ?>
+            
+        <?php endif;?>
     </main>
 
     <script src="../scripts/navScript.js"></script>

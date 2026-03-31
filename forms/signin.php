@@ -71,9 +71,9 @@
         </ul>
 
         <ul class="mobile-list">
-            <li><a href="../about/about.html">About</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="../info/about.html">About</a></li>
+            <li><a href="../info/faq.html">FAQ</a></li>
+            <li><a href="../info/contact.php">Contact</a></li>
         </ul>
 
         <div class="mobile-auth">
@@ -159,7 +159,6 @@
     </main>
 
     <script src="../scripts/navScript.js"></script>
-    <script src="../scripts/jumbotron.js"></script>
     <script src="../scripts/inputScript.js"></script>
 </body>
 </html>
