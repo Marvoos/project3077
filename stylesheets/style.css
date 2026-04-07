@@ -46,6 +46,9 @@
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
+
+    /*Other colours*/
+    --error-colour: #EF5350;
 }
 
 /*
@@ -60,10 +63,12 @@ body {
 
 h1, h1, h2, h3, h4, h5, h6 {
     font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--text-primary);
 }
 
 p, a, li {
     font-family: 'IBM Plex Serif', sans-serif;
+    color: var(--text-secondary);
 }
 
 
@@ -94,6 +99,16 @@ a {
 
 .justify-between { 
     justify-content: space-between; 
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: auto;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
 .w-full {
@@ -135,6 +150,10 @@ a {
     background: var(--bg-main); 
 }
 
+.card {
+    box-shadow: var(--shadow-md);
+}
+
 .bg-card { 
     background: var(--bg-card); 
 }
@@ -152,10 +171,10 @@ a {
     transition: all 0.2s ease;
 }
 
-.jumbo .card-img {
+.card-img {
     width: 100%;
     object-fit: cover;
-    height: 15rem;
+    max-height: 15rem;
     overflow: hidden;
     border-radius: var(--standard-border-radius) var(--standard-border-radius) 0 0;
     position: relative;
@@ -240,6 +259,23 @@ a {
 
 .link:hover {
     text-decoration: underline;
+}
+
+.book-item-hover {
+    transition: transform 0.2s ease;
+}
+
+.book-item-hover:hover {
+    transform: translateY(-0.5rem);
+    outline: solid var(--standard-border-size) var(--alpha-outline);
+}
+
+.card.book-unavailable {
+    opacity: 70%;
+}
+
+.unavailable-text {
+    color: var(--error-colour);
 }
 
 @media screen and (max-width: 1024px) {

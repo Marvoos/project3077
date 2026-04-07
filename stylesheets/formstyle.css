@@ -45,6 +45,58 @@ main.forms {
     border-bottom: solid var(--standard-border-size) var(--primary-colour);
 }
 
+.filter-dropdown {
+    background-color: var(--bg-card);
+    border: var(--standard-border-size) solid var(--border-colour);
+    border-radius: var(--standard-border-radius);
+    outline: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    transition: border-color 0.4s ease;
+    width: 100%;
+    margin: var(--spacing-md) 0;
+}
+
+.filter-dropdown::after {
+    padding: var(--spacing-lg);
+}
+
+.search-input-group {
+    position: relative;
+}
+
+.search-input {
+    background-color: var(--bg-card);
+    border: solid var(--standard-border-size) var(--border-colour);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--standard-border-radius);
+    outline: none;
+    transition: border-color 0.4s ease;
+    width: 100%;
+}
+
+.search-input-group .search-btn {
+    position: absolute;
+    border: none;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bg-main);
+    height: calc(100% - var(--standard-border-size));
+    width: 5rem;
+    border-radius: var(--standard-border-radius);
+    background-color: var(--primary-colour);
+}
+
+.search-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.search-input:focus {
+    border-color: var(--primary-colour);
+}
+
+
+
 @media screen and (max-width: 1000px) {
     .form {
         width: 70%;
