@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET["email"]) && isset($_GET["token"])) {
         $email = $_GET["email"];
         $token = $_GET["token"];
-
+        // Validate the token and email, then update the user's verified status in the database if valid.
         $updateToken = $pdo->prepare("
             UPDATE userdata 
             SET verified = 1, token = NULL 

@@ -61,3 +61,4 @@ try {
     header("Location: ../user/my_books.php?error=failed");
     exit();
 }
+?>

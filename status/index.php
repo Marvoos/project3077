@@ -136,12 +136,12 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="../my_books/my_books.php" class="sidebar-link">
+                <a href="../user/my_books.php" class="sidebar-link">
                     <i class="fa-solid fa-book"></i> My Books
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="../history/history.php" class="sidebar-link">
+                <a href="../user/history.php" class="sidebar-link">
                     <i class="fa-solid fa-clock-rotate-left"></i> History
                 </a>
             </li>

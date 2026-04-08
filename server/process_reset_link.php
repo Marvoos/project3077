@@ -21,7 +21,7 @@
             $stmt->bindValue(":expires_at", $expiry);
 
             $stmt->execute();
-
+            // Generate the password reset link and email content, then attempt to send the reset email to the user. If the email fails to send, display the reset link directly on the page for testing purposes.
             $resetLink = "https://ions.myweb.cs.uwindsor.ca/COMP3077/sls/forms/reset_pass.php?token=$token";
             $subject = "Reset your password!";
 

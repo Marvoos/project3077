@@ -45,7 +45,7 @@
                 $message = "Click to verify: $verificationLink";
                 $headers = "From: no-reply@simplelibsystems.com\r\n";
                 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
+                // Attempt to send the verification email to the user, and if the email fails to send, display the verification link directly on the page for testing purposes.
                 if (mail($email, $subject, $message, $headers)) {
                     header("Location: ../forms/signin.php?register=verify");
                 } else {

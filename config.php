@@ -1,10 +1,9 @@
 <?php
 // Database configuration file
-// TODO: Move these to environment variables for security
 $host = "localhost";
-$dbName = "sls_data";
-$dbUser = "root";
-$dbPass = "";
+$dbName = "ions_sls_data";
+$dbUser = "ions_sls_data";
+$dbPass = "n47gU2JJJH7ScJtVQzzx";
 
     try {
         // Establish PDO connection with error handling
