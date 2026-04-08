@@ -1,8 +1,9 @@
 <?php
+    // Start session to prevent signed-in users from accessing the registration form.
     session_start();
 
     $isLoggedIn = isset($_SESSION["user_id"]);
-
+    // If the user is already logged in, redirect them to their profile page instead of showing the registration form.
     if ($isLoggedIn) {
         header("Location: ../user/profile.php");
         exit();
@@ -66,8 +67,8 @@
         <ul class="mobile-list">
             <li><a href="../home/index.php">Home</a></li>
             <li><a href="../browse/browse.php">Browse</a></li>
-            <li><a href="#">My Books</a></li>
-            <li><a href="#">History</a></li>
+            <li><a href="../user/my_books.php">My Books</a></li>
+            <li><a href="../user/history.php">History</a></li>
         </ul>
 
         <ul class="mobile-list">
@@ -99,12 +100,12 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/my_books.php" class="sidebar-link">
                     <i class="fa-solid fa-book"></i> My Books
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/history.php" class="sidebar-link">
                     <i class="fa-solid fa-clock-rotate-left"></i> History
                 </a>
             </li>
@@ -128,7 +129,7 @@
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../admin/admin_books.php" class="sidebar-link">
                     <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
                 </a>
             </li>
@@ -138,6 +139,7 @@
     <!-- MAIN CONTENT -->
     <main class="main forms">
         <div class="flex flex-col items-center justify-center">
+            <!-- Registration form that submits to process_register.php. It includes fields for first name, last name, email, and password. The password field has a toggle to show/hide the password. There is also a link for users who already have an account to sign in. -->
             <form class="form" method="POST" action="../server/process_register.php">
                 <h2>Register</h2>
                 <p>Fill out the form below to create an account with us.<p>

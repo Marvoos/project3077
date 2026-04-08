@@ -1,8 +1,10 @@
+/* Form styles */
 main.forms {
     background: linear-gradient(160deg, var(--primary-colour) 70%, var(--accent-colour) 70.01%);
     background-attachment: fixed;
 }
 
+/* Form container */
 .form {
     background-color: var(--bg-card);
     padding: var(--spacing-lg);
@@ -11,6 +13,7 @@ main.forms {
     width: 50%;
 }
 
+/* Form field container (A div) */ 
 .form-fields {
     border-top: solid var(--standard-border-size) var(--border-colour);
     border-bottom: solid var(--standard-border-size) var(--border-colour);
@@ -18,6 +21,7 @@ main.forms {
     margin: var(--spacing-md) 0;
 }
 
+/* Text input styling, anything input of type="text"*/
 .text-input {
     background-color: var(--border-colour);
     border: none;
@@ -29,11 +33,13 @@ main.forms {
     margin: var(--spacing-md);
 }
 
+/* Password input container */
 .pass-div {
     position: relative;
     width: 100%;
 } 
 
+/* Password visibility toggle */
 .fa-eye, .fa-eye-slash {
     display: inline-block;
     position: absolute;
@@ -41,10 +47,12 @@ main.forms {
     right: 2.2rem;
 }
 
+/* Text input focus style */
 .text-input:focus {
     border-bottom: solid var(--standard-border-size) var(--primary-colour);
 }
 
+/* Filter dropdown for browse page*/
 .filter-dropdown {
     background-color: var(--bg-card);
     border: var(--standard-border-size) solid var(--border-colour);
@@ -56,14 +64,12 @@ main.forms {
     margin: var(--spacing-md) 0;
 }
 
-.filter-dropdown::after {
-    padding: var(--spacing-lg);
-}
-
+/* Search input group container */
 .search-input-group {
     position: relative;
 }
 
+/* Search input styling for input elements of type text*/
 .search-input {
     background-color: var(--bg-card);
     border: solid var(--standard-border-size) var(--border-colour);
@@ -74,6 +80,7 @@ main.forms {
     width: 100%;
 }
 
+/* Search button styling, contains a magnifying glass */
 .search-input-group .search-btn {
     position: absolute;
     border: none;
@@ -94,8 +101,6 @@ main.forms {
 .search-input:focus {
     border-color: var(--primary-colour);
 }
-
-
 
 @media screen and (max-width: 1000px) {
     .form {

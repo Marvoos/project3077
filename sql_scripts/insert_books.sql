@@ -1,10 +1,4 @@
-INSERT INTO books (name, author, description, image, copies_available) 
-VALUES
-('Book 1', 'Author 1', 'Description 1', 'images/catalog/placeholder/placeholder.svg', 5),
-('Book 2', 'Author 2', 'Description 2', 'images/catalog/placeholder/placeholder.svg', 3),
-('Book 3', 'Author 3', 'Description 3', 'images/catalog/placeholder/placeholder.svg', 7),
-('Book 4', 'Author 4', 'Description 4', 'images/catalog/placeholder/placeholder.svg', 2);
-
+-- SQL script to insert sample book data into the books table
 INSERT INTO books (name, author, description, copies_available) VALUES
 -- Fiction
 ('The Silent Forest', 'Lena Hart', 'A mystery unfolds in a remote woodland town.', 3),

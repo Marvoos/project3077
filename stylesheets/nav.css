@@ -1,3 +1,4 @@
+/* Navigation and sidebar styles */
 .nav {
     position: fixed;
     top: 0;
@@ -8,35 +9,42 @@
     z-index: 100;
 }
 
+/* Nav logo/title, {SLS}*/
 .nav-title::first-letter {
     color: var(--primary-colour);
 }
 
+/* Nav inner container */
 .nav-inner {
     height: 100%;
 }
 
+/* Nav list */
 .nav-list {
     list-style: none;
     display: flex;
     gap: 1rem;
 }
 
+/* Nav items */
 .nav-item {
     padding: 0.75rem 1rem;
     border-radius: var(--standard-border-radius);
     transition: 0.2s;
 }
 
+/* Modal styles */
 .nav-item:hover {
     background: var(--bg-hover);
 }
 
+/* Nav link */
 .nav-link {
     text-decoration: none;
     color: var(--text-primary);
 }
 
+/* Sidebar styles */
 .sidebar {
     position: fixed;
     top: var(--nav-height);
@@ -72,7 +80,7 @@
     color: var(--text-secondary);
 }
 
-/* Active state */
+/* Active state for sidebar items */
 .sidebar-item.active {
     background: var(--primary-colour);
 }
@@ -81,6 +89,9 @@
     color: white;
 }
 
+/** * Main content area styles
+ * The main content area is designed to be responsive, adjusting its layout based on the presence of the sidebar and navigation bar.
+ */
 .main {
     margin-top: var(--nav-height);
     margin-left: var(--sidebar-width);
@@ -88,6 +99,7 @@
     min-height: 100vh;
 }
 
+/* Mobile menu */
 .nav .nav-mobile {
     display: none;
     height: 100%;
@@ -107,6 +119,9 @@
     z-index: 102;
 }
 
+/** * Hamburger bars
+ * The three bars of the hamburger menu are styled to be visually distinct and animate smoothly when toggled.
+ */
 .hamburger span {
     width: 100%;
     height: 3px;
@@ -120,10 +135,12 @@
     transform: rotate(45deg) translateY(0.85rem);
 }
 
+/* Middle bar fades out */
 .hamburger.open span:nth-child(2) {
     opacity: 0;
 }
 
+/* Animate into X */
 .hamburger.open span:nth-child(3) {
     transform: rotate(-45deg) translateY(-0.85rem);
 }
@@ -148,6 +165,7 @@
     z-index: 101;
 }
 
+/* Show mobile menu when open */
 .mobile-menu.open {
     transform: translateX(0);
 }
@@ -160,6 +178,7 @@
     gap: 1rem;
 }
 
+/* Mobile nav links */
 .mobile-list a {
     text-decoration: none;
     color: var(--text-primary);

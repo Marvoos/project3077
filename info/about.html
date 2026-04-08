@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- About page describing the mission and purpose of the Simple Library System. -->
     <!--SEO Meta tags-->
     <!--Character set definition-->
     <meta charset="UTF-8">
@@ -12,56 +13,130 @@
     <meta name="description" content="A local library service to view and hold books">
     <!--Linking the external stylesheet-->
     <link rel="stylesheet" href="../stylesheets/nav.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/formstyle.css">
+
+    <script src="https://kit.fontawesome.com/7d8aa418e1.js" crossorigin="anonymous"></script>
     
-    <title>SLS</title>
+    <title>About SLS</title>
 </head>
-<body>  
-    <nav class="sls-nav">
-        <div class="desktop">
-            <div>
-                <h2>SLS</h2>
-                <ul class="page-links">
-                    <li><a href="index.php" class="nav-item">Home</a></li>
-                    <li><a href="browse/browse.php" class="nav-item">Browse</a></li>
-                    <li id="active-nav"><a href="about/about.html" class="nav-item">About</a></li>
-                </ul>
-            </div>
-            <div>
-                <ul class="account-controls">
-                    <li><a href="signin.php" class="account">Sign in</a></li>
-                    <li><a href="register.php" class="account-bold">Register</a></li>  
-                </ul>
+<body class="bg-main">  
+    <nav class="nav">
+        <div class="nav-inner flex justify-between items-center p-lg">
+            <h2 class="nav-title">SLS</h2>
+            
+            <div class="flex items-center">
+                <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
+                <a href="../forms/register.php" class="btn btn-primary">Register</a> 
             </div>
         </div>
-        <div class="mobile">
-            <div>
-                <div class="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="close-x hidden">
-                    <div id="line1"></div>
-                    <div id="line2"></div>
-                </div>
-                <h2>SLS</h2>
-            </div>
-            
-            <ul class="account-controls">
-                <li><a href="signin.php" class="account">Sign in</a></li>
-                <li><a href="register.php" class="account-bold">Register</a></li>  
-            </ul>
-            <ul class="hidden-nav">  
-                <li><a href="../index.php" class="nav-item">Home</a></li>
-                <li><a href="../browse/browse.php" class="nav-item">Browse</a></li>
-                <li><a href="about.html" class="nav-item">About</a></li>
-            </ul>
-        </div>  
+        <div class="nav-mobile flex justify-between items-center p-md">
+            <h2 class="nav-title">SLS</h2>
+
+            <button class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
     </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
 
-    <main class="content">
+        <ul class="mobile-list">
+            <li><a href="../home/index.php">Home</a></li>
+            <li><a href="../browse/browse.php">Browse</a></li>
+            <li><a href="../user/my_books.php">My Books</a></li>
+            <li><a href="../user/history.php">History</a></li>
+        </ul>
 
+        <ul class="mobile-list">
+            <li><a href="../info/about.html">About</a></li>
+            <li><a href="../info/faq.html">FAQ</a></li>
+            <li><a href="../info/contact.php">Contact</a></li>
+        </ul>
+
+        <div class="mobile-auth">
+            <a href="../forms/signin.php" class="btn btn-outline">Sign in</a>
+            <a href="../forms/register.php" class="btn btn-primary">Register</a>
+        </div>
+
+    </div>
+    <aside class="sidebar">
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="../home/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../browse/browse.php" class="sidebar-link">
+                    <i class="fa-solid fa-magnifying-glass"></i> Browse
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../user/my_books.php" class="sidebar-link">
+                    <i class="fa-solid fa-book"></i> My Books
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../user/history.php" class="sidebar-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i> History
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebar-list">
+            <li class="sidebar-item active">
+                <a href="../info/about.html" class="sidebar-link">
+                    <i class="fa-solid fa-circle-info"></i> About
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../info/faq.html" class="sidebar-link">
+                    <i class="fa-solid fa-clipboard-question"></i> FAQ
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../info/contact.php" class="sidebar-link">
+                    <i class="fa-solid fa-envelope"></i> Contact
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../status/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-signal"></i> Status
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="../admin/admin_books.php" class="sidebar-link">
+                    <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+        <!-- About Content -->
+        <div class="card bg-card shadow-md rounded p-lg">
+            <h1>About Simple Library System (SLS)</h1>
+            <p>Welcome to SLS, your local library service designed to make borrowing books easy and accessible.</p>
+            <p>Our mission is to provide a comprehensive catalog of books for users to browse, search, and borrow. Whether you're a student, researcher, or casual reader, we have something for everyone.</p>
+            <h2>Features</h2>
+            <ul>
+                <li>Browse and search through our extensive book collection</li>
+                <li>Borrow books for up to 21 days</li>
+                <li>Track your borrowing history</li>
+                <li>Easy registration and account management</li>
+            </ul>
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to <a href="contact.php">contact us</a>.</p>
+        </div>
     </main>
+
     <script src="../scripts/navScript.js"></script>
 </body>
 </html>

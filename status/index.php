@@ -1,9 +1,9 @@
 <?php
+    // Database connection details used by the status page.
     $host = "localhost";
     $dbName = "sls_data";
     $dbUser = "root";
     $dbPass = "";
-
     session_start();
 
     $isLoggedIn = isset($_SESSION["user_id"]);
@@ -17,6 +17,7 @@
             return false;
         }
     }
+
     function testUsersTable($pdo) {
         try {
             $stmt = $pdo->query("SELECT 1 FROM userdata LIMIT 1");
@@ -26,6 +27,7 @@
             return false;
         }
     }
+
     function testBooksTable($pdo) {
         try {
             $stmt = $pdo->query("SELECT 1 FROM books LIMIT 1");
@@ -48,14 +50,17 @@
     $status = [];
 
     try {
+        // Establish PDO connection with error handling and test each critical table to determine overall service status.
         $pdo = new PDO("mysql:host=$host;dbname=$dbName", $dbUser, $dbPass);
         $status['database'] = true;
 
+        // Test each critical table and store the results in the status array to determine if each service is online or offline.
         $status['users'] = testUsersTable($pdo);
         $status['books'] = testBooksTable($pdo);
         $status['borrowing'] = testBorrowTable($pdo);
 
     } catch (PDOException $e) {
+        // If the database connection fails, set all services to offline in the status array to reflect the overall system status.
         $status['database'] = false;
         $status['users'] = false;
         $status['books'] = false;
@@ -107,8 +112,8 @@
         <ul class="mobile-list">
             <li><a href="../home/index.php">Home</a></li>
             <li><a href="../browse/browse.php">Browse</a></li>
-            <li><a href="#">My Books</a></li>
-            <li><a href="#">History</a></li>
+            <li><a href="../my_books/my_books.php">My Books</a></li>
+            <li><a href="../history/history.php">History</a></li>
         </ul>
 
         <ul class="mobile-list">
@@ -120,7 +125,7 @@
     </div>
     <aside class="sidebar">
         <ul class="sidebar-list">
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
                 <a href="../home/index.php" class="sidebar-link">
                     <i class="fa-solid fa-house"></i> Home
                 </a>
@@ -131,12 +136,12 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../my_books/my_books.php" class="sidebar-link">
                     <i class="fa-solid fa-book"></i> My Books
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../history/history.php" class="sidebar-link">
                     <i class="fa-solid fa-clock-rotate-left"></i> History
                 </a>
             </li>
@@ -157,10 +162,15 @@
                     <i class="fa-solid fa-envelope"></i> Contact
                 </a>
             </li>
+            <li class="sidebar-item active">
+                <a href="../status/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-signal"></i> Status
+                </a>
+            </li>
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../admin/admin_books.php" class="sidebar-link">
                     <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
                 </a>
             </li>
@@ -175,10 +185,13 @@
             <br>
             <p>There are a total of <strong>four</strong> connections being tracked. These were deemed most important to our system and to our userbase.</p>
         </div>
+        <!-- Display the status of each service in a card format, showing whether each service is online or offline based on the results from the database tests. -->
         <?php foreach($status as $service => $isOnline): ?>
             <div class="card bg-card border rounded p-md m-md">
+                <!-- Display the name of the service and its status (online/offline) with appropriate styling based on the status. -->
                 <h3><?php echo strtoupper($service) ?></h3>
                 <?php if($isOnline): ?>
+                    <!-- If the service is online, display a green "ONLINE" badge. If the service is offline, display a red "OFFLINE" badge. -->
                     <p class="rounded p-sm" style="background: var(--success-colour); color: var(--bg-main); font-weight: 600;">ONLINE</p>
                 <?php elseif (!$isOnline): ?>
                     <p class="rounded p-sm" style="background: var(--error-colour); color: var(--bg-main); font-weight: 600;">OFFLINE</p>
