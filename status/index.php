@@ -1,9 +1,9 @@
 <?php
     // Database connection details used by the status page.
     $host = "localhost";
-    $dbName = "sls_data";
-    $dbUser = "root";
-    $dbPass = "";
+    $dbName = "ions_sls_data";
+    $dbUser = "ions_sls_data";
+    $dbPass = "n47gU2JJJH7ScJtVQzzx";
     session_start();
 
     $isLoggedIn = isset($_SESSION["user_id"]);

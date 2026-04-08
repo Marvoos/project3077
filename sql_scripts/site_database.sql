@@ -40,7 +40,7 @@ CREATE TABLE books(
   -- Description provides a brief summary of the book's content. It is optional and can be of variable length, so we use the TEXT data type.
   description text,
   -- Image is a URL to the book's cover image. It is optional and has a default value of a placeholder image if not provided. The maximum length is set to 255 characters to accommodate typical URL lengths.
-  image VARCHAR(255) DEFAULT 'images/catalog/placholder/placeholder.svg',
+  image VARCHAR(255) DEFAULT 'images/catalog/placeholder/placeholder.svg',
   -- Copies_available indicates how many copies of the book are currently available for borrowing. It is an integer and defaults to 1 if not specified.
   copies_available INT DEFAULT 1,
   -- Created_at is a timestamp that records when the book entry was created. It defaults to the current timestamp when a new record is inserted.
