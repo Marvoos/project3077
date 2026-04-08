@@ -1,6 +1,7 @@
 <?php
+    // Start session to determine whether a user is already signed in.
     session_start();
-
+    // If the user is already logged in, redirect them to their profile page instead of showing the sign-in form.
     $isLoggedIn = isset($_SESSION["user_id"]);
 
     if ($isLoggedIn) {
@@ -37,15 +38,8 @@
             <h2 class="nav-title">SLS</h2>
             
             <div class="flex items-center">
-                <?php if ($isLoggedIn): ?>
-                    <a href="../server/signout.php" class="btn btn-primary m-md">Sign out</a>
-                    <a href="../user/profile.php" class="nav-link">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                <?php else: ?>
-                    <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
-                    <a href="../forms/register.php" class="btn btn-primary">Register</a> 
-                <?php endif; ?> 
+                <a href="../forms/signin.php" class="btn btn-outline  m-md">Sign in</a>
+                <a href="../forms/register.php" class="btn btn-primary">Register</a> 
             </div>
         </div>
         <div class="nav-mobile flex justify-between items-center p-md">
@@ -66,8 +60,8 @@
         <ul class="mobile-list">
             <li><a href="../home/index.php">Home</a></li>
             <li><a href="../browse/browse.php">Browse</a></li>
-            <li><a href="#">My Books</a></li>
-            <li><a href="#">History</a></li>
+            <li><a href="../user/my_books.php">My Books</a></li>
+            <li><a href="../user/history.php">History</a></li>
         </ul>
 
         <ul class="mobile-list">
@@ -77,12 +71,8 @@
         </ul>
 
         <div class="mobile-auth">
-            <?php if ($isLoggedIn): ?>
-                <a href="../server/signout.php" class="btn btn-primary">Sign out</a>
-            <?php else: ?>
-                <a href="../forms/signin.php" class="btn btn-outline">Sign in</a>
-                <a href="../forms/register.php" class="btn btn-primary">Register</a>
-            <?php endif; ?>
+            <a href="../forms/signin.php" class="btn btn-outline">Sign in</a>
+            <a href="../forms/register.php" class="btn btn-primary">Register</a>
         </div>
 
     </div>
@@ -99,12 +89,12 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/my_books.php" class="sidebar-link">
                     <i class="fa-solid fa-book"></i> My Books
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/history.php" class="sidebar-link">
                     <i class="fa-solid fa-clock-rotate-left"></i> History
                 </a>
             </li>
@@ -116,19 +106,24 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../info/faq.html" class="sidebar-link">
                     <i class="fa-solid fa-clipboard-question"></i> FAQ
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../info/contact.php" class="sidebar-link">
                     <i class="fa-solid fa-envelope"></i> Contact
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../status/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-signal"></i> Status
                 </a>
             </li>
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../admin/admin_books.php" class="sidebar-link">
                     <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
                 </a>
             </li>

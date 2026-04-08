@@ -1,4 +1,5 @@
 <?php
+    // Start user session and check if the visitor is logged in.
     session_start();
 
     $isLoggedIn = isset($_SESSION["user_id"]);
@@ -59,8 +60,9 @@
         <ul class="mobile-list">
             <li><a href="../home/index.php">Home</a></li>
             <li><a href="../browse/browse.php">Browse</a></li>
-            <li><a href="#">My Books</a></li>
-            <li><a href="#">History</a></li>
+            <li><a href="../user/my_books.php">My Books</a></li>
+            <li><a href="../user/history.php">History</a></li>
+            <li><a href="../status/index.php">Status</a></li>
         </ul>
 
         <ul class="mobile-list">
@@ -92,12 +94,12 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/my_books.php" class="sidebar-link">
                     <i class="fa-solid fa-book"></i> My Books
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/history.php" class="sidebar-link">
                     <i class="fa-solid fa-clock-rotate-left"></i> History
                 </a>
             </li>
@@ -118,44 +120,70 @@
                     <i class="fa-solid fa-envelope"></i> Contact
                 </a>
             </li>
+            <li class="sidebar-item">
+                <a href="../status/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-signal"></i> Status
+                </a>
+            </li>
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../admin/admin_books.php" class="sidebar-link">
                     <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
                 </a>
             </li>
         </ul>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="main">
-        <div class="card bg-card shadow-md rounded jumbo border">
-            <div class="card-img">
+    <main class="main p-lg">
 
+        <!-- HERO -->
+        <section class="section">
+            <div class="card bg-card rounded shadow-md jumbo border">
+                <div class="card-img"></div>
+                <div class="card-body p-lg"></div>
             </div>
-            <div class="card-body p-lg">
-                
+        </section>
+
+        <!-- QUICK ACTIONS -->
+        <section class="section">
+            <div class="flex justify-between items-center m-md">
+                <h2>Dashboard</h2>
             </div>
-        </div>
-        <?php if ($isLoggedIn): ?>
-            <div>
-                <div>
-                    <h2 class="text-primary">Borrowing</h2>
+            <!-- Placeholder content for quick actions -->
+            <?php if ($isLoggedIn): ?>
+                <div class="grid grid-3">
+                    <div class="card bg-card rounded p-lg action-card">
+                        <h3>Borrowing</h3>
+                        <p>View your current books and due dates.</p>
+                        <!-- Link to My Books page -->
+                        <a href="../user/my_books.php" class="btn btn-primary">View Books</a>
+                    </div>
+
+                    <div class="card bg-card rounded p-lg action-card">
+                        <h3>History</h3>
+                        <p>See everything you've borrowed.</p>
+                        <!-- Link to History page -->
+                        <a href="../user/history.php" class="btn btn-outline">View History</a>
+                    </div>
+
+                    <div class="card bg-card rounded p-lg action-card">
+                        <h3>Recommendations</h3>
+                        <p>Personalized suggestions (coming soon).</p>
+                        <!-- Placeholder for future recommendations feature -->
+                        <span class="badge badge-unavailable">Coming Soon</span>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="text-primary">Previously Borrowed</h2>
+                <!-- End of quick actions -->
+            <?php else: ?>
+                <div class="card bg-card rounded shadow-md p-lg flex flex-col items-center justify-center">
+                    <h2>Join the Library</h2>
+                    <p>Borrow books for free and track your reading.</p>
+                    <a href="../forms/register.php" class="btn btn-primary">Get Started</a>
                 </div>
-                <div>
-                    <h2 class="text-primary">For You</h2>
-                </div>
-                <div>
-                    <h2 class="text-primary">Recent Additions</h2>
-                </div>
-            </div>
-        <?php else: ?>
-            
-        <?php endif;?>
+            <?php endif; ?>
+        </section>
+
     </main>
 
     <script src="../scripts/navScript.js"></script>

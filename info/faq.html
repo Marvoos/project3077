@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- FAQ page with common questions and answers about the library system. -->
     <!--SEO Meta tags-->
     <!--Character set definition-->
     <meta charset="UTF-8">
@@ -12,54 +13,102 @@
     <meta name="description" content="A local library service to view and hold books">
     <!--Linking the external stylesheet-->
     <link rel="stylesheet" href="../stylesheets/nav.css">
-    
-    <title>SLS</title>
-</head>
-<body>  
-    <nav class="sls-nav">
-        <div class="desktop">
-            <div>
-                <h2>SLS</h2>
-                <ul class="page-links">
-                    <li><a href="index.php" class="nav-item">Home</a></li>
-                    <li><a href="browse/browse.php" class="nav-item">Browse</a></li>
-                    <li id="active-nav"><a href="about/about.html" class="nav-item">About</a></li>
-                </ul>
-            </div>
-            <div>
-                <ul class="account-controls">
-                    <li><a href="signin.php" class="account">Sign in</a></li>
-                    <li><a href="register.php" class="account-bold">Register</a></li>  
-                </ul>
-            </div>
-        </div>
-        <div class="mobile">
-            <div>
-                <div class="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="close-x hidden">
-                    <div id="line1"></div>
-                    <div id="line2"></div>
-                </div>
-                <h2>SLS</h2>
-            </div>
-            
-            <ul class="account-controls">
-                <li><a href="signin.php" class="account">Sign in</a></li>
-                <li><a href="register.php" class="account-bold">Register</a></li>  
-            </ul>
-            <ul class="hidden-nav">  
-                <li><a href="../index.php" class="nav-item">Home</a></li>
-                <li><a href="../browse/browse.php" class="nav-item">Browse</a></li>
-                <li><a href="about.html" class="nav-item">About</a></li>
-            </ul>
-        </div>  
-    </nav>
+    <link rel="stylesheet" href="../stylesheets/style.css">
 
-    <main class="content">
+    <script src="https://kit.fontawesome.com/7d8aa418e1.js" crossorigin="anonymous"></script>
+    
+    <title>FAQ - SLS</title>
+</head>
+<body class="bg-main">  
+    <nav class="nav">
+        <div class="nav-inner flex justify-between items-center p-lg">
+            <h2 class="nav-title">SLS</h2>
+            
+        </div>
+        <div class="nav-mobile flex justify-between items-center p-md">
+            <h2 class="nav-title">SLS</h2>
+
+            <button class="hamburger" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+
+        <ul class="mobile-list">
+            <li><a href="../home/index.php">Home</a></li>
+            <li><a href="../browse/browse.php">Browse</a></li>
+            <li><a href="../user/my_books.php">My Books</a></li>
+            <li><a href="../user/history.php">History</a></li>
+            <li><a href="../status/index.php">Status</a></li>
+        </ul>
+
+        <ul class="mobile-list">
+            <li><a href="../info/about.html">About</a></li>
+            <li><a href="../info/faq.html">FAQ</a></li>
+            <li><a href="../info/contact.php">Contact</a></li>
+        </ul>
+
+    </div>
+    <aside class="sidebar">
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="../home/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../browse/browse.php" class="sidebar-link">
+                    <i class="fa-solid fa-magnifying-glass"></i> Browse
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../user/my_books.php" class="sidebar-link">
+                    <i class="fa-solid fa-book"></i> My Books
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../user/history.php" class="sidebar-link">
+                    <i class="fa-solid fa-clock-rotate-left"></i> History
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="../info/about.html" class="sidebar-link">
+                    <i class="fa-solid fa-circle-info"></i> About
+                </a>
+            </li>
+            <li class="sidebar-item active">
+                <a href="../info/faq.html" class="sidebar-link">
+                    <i class="fa-solid fa-clipboard-question"></i> FAQ
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../info/contact.php" class="sidebar-link">
+                    <i class="fa-solid fa-envelope"></i> Contact
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="../status/index.php" class="sidebar-link">
+                    <i class="fa-solid fa-signal"></i> Status
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebar-list">
+            <li class="sidebar-item">
+                <a href="../admin/admin_books.php" class="sidebar-link">
+                    <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="main">
 
     </main>
     <script src="../scripts/navScript.js"></script>

@@ -1,11 +1,14 @@
+/* Font families: IBM Plex Sans, IBM Plex Serif, Poppins */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Root variables */
 :root {
     /* Base */
     --white-colour: #ffffff;
@@ -46,6 +49,10 @@
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
+
+    /*Other colours*/
+    --error-colour: #EF5350;
+    --success-colour: #3DC13C;
 }
 
 /*
@@ -60,10 +67,12 @@ body {
 
 h1, h1, h2, h3, h4, h5, h6 {
     font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--text-primary);
 }
 
 p, a, li {
     font-family: 'IBM Plex Serif', sans-serif;
+    color: var(--text-secondary);
 }
 
 
@@ -71,11 +80,18 @@ a {
     text-decoration: none;
 }
 
+/**
+ * Utility classes for spacing, layout, text, backgrounds, borders, and shadows.
+ * These can be used throughout the site to maintain consistency and reduce the need for custom CSS.
+ */
+
+
 /* Layout utilities */
 .flex { 
     display: flex; 
 }
 
+/* Flex direction utilities */
 .flex-col { 
     flex-direction: column; 
 }
@@ -94,6 +110,17 @@ a {
 
 .justify-between { 
     justify-content: space-between; 
+}
+
+/* Grid utilities */
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: auto;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
 .w-full {
@@ -135,31 +162,54 @@ a {
     background: var(--bg-main); 
 }
 
+/* Card */
+.card {
+    box-shadow: var(--shadow-md);
+}
+
+
 .bg-card { 
     background: var(--bg-card); 
+}
+
+.card-img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 15rem;
+    overflow: hidden;
+    border-radius: var(--standard-border-radius) var(--standard-border-radius) 0 0;
+    position: relative;
 }
 
 .bg-hover:hover { 
     background: var(--bg-hover); 
 }
 
+/* Jumbo */
 .jumbo {
-    height: 35rem;
-    width: 100%;
-}
-
-.jumbo {
-    transition: all 0.2s ease;
+    height: 37rem;
+    overflow: hidden;
 }
 
 .jumbo .card-img {
-    width: 100%;
-    object-fit: cover;
-    height: 15rem;
-    overflow: hidden;
-    border-radius: var(--standard-border-radius) var(--standard-border-radius) 0 0;
-    position: relative;
+    height: 100%;
+    border-radius: 0;
 }
+
+.jumbo .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.jumbo .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+
 
 .jumbo .img-credit-caption {
     position: absolute;
@@ -178,6 +228,28 @@ a {
     transition: all 0.2s ease;
 }
 
+/* Section */
+.section {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Action Card */
+.action-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    justify-content: space-between;
+    min-height: 12rem;
+    transition: all 0.2s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    background: var(--bg-hover);
+}
+
+/* Round Jumbo Button, navigation between slides*/
 .round-jumbo-btn.active {
     opacity: 100%;
 }
@@ -213,7 +285,7 @@ a {
     border: none;
 }
 
-/* Variants */
+/* Button variants */
 .btn-primary {
     background: var(--primary-colour);
     color: white;
@@ -234,6 +306,7 @@ a {
     color: white;
 }
 
+/* Link */
 .link {
     color: var(--accent-colour);
 }
@@ -242,9 +315,184 @@ a {
     text-decoration: underline;
 }
 
+.link.active-link {
+    text-decoration: underline;
+    font-weight: 600;
+
+}
+
+/* Hidden */
+.hidden {
+    display: none !important;
+}
+
+/* Book Hero Card */
+.book-hero-card {
+    overflow: hidden;
+}
+
+/* */
+.book-cover {
+    width: 100%;
+    height: 100%;
+    min-height: 22rem;
+    object-fit: cover;
+    display: block;
+}
+
+/* Book Metadata */
+.book-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* Book Title */
+.book-title {
+    font-size: 2rem;
+    margin-top: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+/* Book Author */
+.book-author {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Book Stats */
+.book-stats {
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* Book Description */
+.book-description {
+    line-height: 1.75;
+    color: var(--text-secondary);
+}
+
+/* Badges for availability status */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.badge-available {
+    background: rgba(16, 185, 129, 0.14);
+    color: #059669;
+}
+
+.badge-unavailable {
+    background: rgba(239, 68, 68, 0.12);
+    color: #b91c1c;
+}
+
+/* Modal overlay for submitting a borrow request */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: grid;
+    place-items: center;
+    padding: var(--spacing-md);
+    z-index: 50;
+}
+
+/* Modal Card*/
+.modal-card {
+    width: min(100%, 42rem);
+    padding: var(--spacing-lg);
+    position: relative;
+}
+
+/* Modal Header */
+.modal-header {
+    border-bottom: 1px solid var(--border-colour);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.modal-body {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+/* Modal Actions */
+.modal-actions {
+    margin-top: var(--spacing-md);
+}
+
+/* Message styling for modal form*/
+.message {
+    border: 1px solid transparent;
+    padding: var(--spacing-md);
+    border-radius: var(--standard-border-radius);
+    margin-bottom: var(--spacing-lg);
+}
+
+.message-success {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #047857;
+}
+
+.message-error {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.35);
+    color: #b91c1c;
+}
+
+
+.book-item-hover {
+    transition: transform 0.2s ease;
+}
+
+.book-item-hover:hover {
+    transform: translateY(-0.5rem);
+    outline: solid var(--standard-border-size) var(--alpha-outline);
+}
+
+.card.book-unavailable {
+    opacity: 70%;
+}
+
+.unavailable-text {
+    color: var(--error-colour);
+}
+
+/** * Responsive design adjustments for different screen sizes
+ * These media queries ensure the site remains usable and visually appealing on tablets and mobile devices.
+ */
+
 @media screen and (max-width: 1024px) {
     html {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .jumbo {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .jumbo .card-img {
+        max-height: 18rem;
     }
 }
 

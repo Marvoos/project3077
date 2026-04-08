@@ -1,6 +1,8 @@
 <?php
+    require __DIR__ . '/../config.php';
+    // Start session and protect the reset form from already signed-in users.
     session_start();
-
+    // Check if the user is already logged in. If they are, redirect them to their profile page since they don't need to reset their password.
     $isLoggedIn = isset($_SESSION["user_id"]);
 
     if ($isLoggedIn) {
@@ -8,22 +10,10 @@
         exit();
     }
 
-    $host = "localhost";
-    $dbName = "ions_sls_data";
-    $dbUser = "ions_sls_data";
-    $dbPass = "n47gU2JJJH7ScJtVQzzx";
-
-    try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Error message: " . $e->getMessage());
-    }
-
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if (isset($_GET["token"])) {
-            $token = $_GET["token"];
-
+            $token = $_GET["token"];   
+            // Look up the token in the passwordresets table to verify it's valid and not expired before showing the reset form.
             $stmt = $pdo->prepare("SELECT * FROM passwordresets WHERE token = :token");
             $stmt->bindValue(":token", $token);
             $stmt->execute();
@@ -89,8 +79,8 @@
         <ul class="mobile-list">
             <li><a href="../home/index.php">Home</a></li>
             <li><a href="../browse/browse.php">Browse</a></li>
-            <li><a href="#">My Books</a></li>
-            <li><a href="#">History</a></li>
+            <li><a href="../user/my_books.php">My Books</a></li>
+            <li><a href="../user/history.php">History</a></li>
         </ul>
 
         <ul class="mobile-list">
@@ -100,12 +90,8 @@
         </ul>
 
         <div class="mobile-auth">
-            <?php if ($isLoggedIn): ?>
-                <a href="../server/signout.php" class="btn btn-primary">Sign out</a>
-            <?php else: ?>
-                <a href="../forms/signin.php" class="btn btn-outline">Sign in</a>
-                <a href="../forms/register.php" class="btn btn-primary">Register</a>
-            <?php endif; ?>
+            <a href="../forms/signin.php" class="btn btn-outline">Sign in</a>
+            <a href="../forms/register.php" class="btn btn-primary">Register</a>
         </div>
 
     </div>
@@ -122,12 +108,12 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/my_books.php" class="sidebar-link">
                     <i class="fa-solid fa-book"></i> My Books
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../user/history.php" class="sidebar-link">
                     <i class="fa-solid fa-clock-rotate-left"></i> History
                 </a>
             </li>
@@ -151,7 +137,7 @@
         </ul>
         <ul class="sidebar-list">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="../admin/admin_books.php" class="sidebar-link">
                     <i class="fa-solid fa-right-to-bracket"></i> Staff Portal
                 </a>
             </li>
@@ -163,6 +149,7 @@
         <div class="flex flex-col items-center justify-center">
             <form class="form" method="POST" action="../server/change_pass.php">
                 <h2>Reset Password</h2>
+                <!-- The form includes a hidden input for the token, a password field with a toggle to show/hide the password, and a submit button to reset the password. -->
                 <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
                 <div class="form-fields">
                     <div class="pass-div flex justify-center items-center">
